@@ -16,9 +16,10 @@ async function bootstrap() {
     )
     .setVersion('1.0')
     .addTag('fcm apies')
+    .setBasePath('API')
     .build();
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('api', app, document);
+  SwaggerModule.setup('docs', app, document);
   app.setGlobalPrefix('API');
   await app.listen(process.env.SERVER_PORT, () => {
     console.log('Server started succesfuly with', process.env.SERVER_PORT);

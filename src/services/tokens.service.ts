@@ -1,7 +1,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Token } from '../entities/token.entity';
 import { Repository } from 'typeorm';
+import { Token } from '../entities/token.entity';
 
 @Injectable()
 export class TokenService {
@@ -9,18 +9,21 @@ export class TokenService {
     @InjectRepository(Token)
     private readonly tokenRepository: Repository<Token>,
   ) {}
-  async addToken(token: string): Promise<any> {
-    const tokenCheck = this.tokenRepository.findOne({
-      where: { token: token },
+
+  async createToken(token: string): Promise<Token> {
+    const existingToken = await this.tokenRepository.findOne({
+      where: { token },
     });
-    if (tokenCheck) {
-      throw new NotFoundException('Token Zaten Var');
+
+    if (existingToken) {
+      throw new NotFoundException('Token already exists');
     }
+
     const newToken = this.tokenRepository.create({ token });
-    console.log('Token eklendi');
     return this.tokenRepository.save(newToken);
   }
-  async removeToken(token: string): Promise<any> {
-    this.tokenRepository.delete({ token });
+  async getTokens(): Promise<Token[]> {
+    const tokens = this.tokenRepository.find();
+    return tokens;
   }
 }
