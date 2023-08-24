@@ -38,4 +38,4 @@ $ yarn run start:prod
 
 ## License
 
-This project is [ISC licensed](LICENSE).
+This project is [MIT licensed](LICENSE).
