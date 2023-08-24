@@ -1,14 +1,14 @@
 ## Description
-This project use Firebase Admin SDK and NestJS with TypeScript and TypeORM,
-You cand send Notification using this projects API.
-If you want see all endpoints you can use Swagger https://localhost:$PORT:API/
+This project uses Firebase Admin SDK and NestJS with TypeScript and TypeORM.
+You can send Notification using this project API.
+You can use Swagger https://localhost:$PORT:API/ if you want to see all endpoints.
 
-## Özellikler
-# Send all notification
-# Send notification to token
-# send notification to topic
-# Subscribe to topic
-# Unsubscribe to topic
+# Features
+## Send all notification
+## Send notification to token
+## send notification to topic
+## Subscribe to topic
+## Unsubscribe to topic
 
 
 ## Installation
