@@ -10,7 +10,7 @@ import {
 } from '@nestjs/common';
 import { AuthGuard } from './auth.guard';
 import { AuthService } from './auth.service';
-import { Public } from './constants';
+import { Public } from './jwt.config';
 
 @Public()
 @Controller('auth')
