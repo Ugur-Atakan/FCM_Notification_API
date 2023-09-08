@@ -6,6 +6,6 @@ export const jwtConfig = {
   global: true,
   secret: 'sosecretkeyandwhoami',
   signOptions: {
-    expiresIn: '1h', // Tokenin geçerlilik süresi burada ayarlanır (örneğin, 1 saat)
+    expiresIn: '3h', // Tokenin geçerlilik süresi burada ayarlanır (örneğin, 3 saat)
   },
 };
