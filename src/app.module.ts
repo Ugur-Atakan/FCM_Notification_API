@@ -10,9 +10,19 @@ import { SendNotificationToTopicModule } from './modules/sendNotificationToTopic
 import { SubscribeToTopicModule } from './modules/subscribeToTopic.module copy';
 import { unSubscribeToTopicModule } from './modules/unSubscribeToTopic.module';
 import { TokenModule } from './modules/token.module';
+import { AuthModule } from './auth/auth.module';
+import { UsersModule } from './users/users.module';
+import { AuthGuard } from './auth/auth.guard';
+import { APP_GUARD } from '@nestjs/core';
 @Module({
   controllers: [AppController],
-  providers: [AppService],
+  providers: [
+    {
+      provide: APP_GUARD,
+      useClass: AuthGuard,
+    },
+    AppService,
+  ],
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
@@ -24,6 +34,8 @@ import { TokenModule } from './modules/token.module';
     SubscribeToTopicModule,
     unSubscribeToTopicModule,
     TokenModule,
+    AuthModule,
+    UsersModule,
   ],
 })
 export class AppModule {}
